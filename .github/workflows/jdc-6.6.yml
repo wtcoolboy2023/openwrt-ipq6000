@@ -3,7 +3,7 @@ name: IPQ60XX-6.6-WIFI
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 2 * * 3
+    - cron: 0 5 * * 3
 
 env:
   REPO_URL: https://github.com/VIKINGYFY/immortalwrt.git
