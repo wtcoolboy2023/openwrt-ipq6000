@@ -14,7 +14,7 @@ env:
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: jdc-6.6-wifi
+  FIRMWARE_TAG: jdc-6.6-daed
   TZ: Asia/Shanghai
 
 jobs:
