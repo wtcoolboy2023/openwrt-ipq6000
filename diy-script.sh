@@ -123,10 +123,40 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 # 取消主题默认设置
 find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
 
+# eBPF
+echo "CONFIG_DEVEL=y" >> ./.config
+echo "CONFIG_BPF_TOOLCHAIN_HOST=y" >> ./.config
+echo "# CONFIG_BPF_TOOLCHAIN_NONE is not set" >> ./.config
+echo "CONFIG_KERNEL_BPF_EVENTS=y" >> ./.config
+echo "CONFIG_KERNEL_CGROUP_BPF=y" >> ./.config
+echo "CONFIG_KERNEL_DEBUG_INFO=y" >> ./.config
+echo "CONFIG_KERNEL_DEBUG_INFO_BTF=y" >> ./.config
+echo "# CONFIG_KERNEL_DEBUG_INFO_REDUCED is not set" >> ./.config
+echo "CONFIG_KERNEL_XDP_SOCKETS=y" >> ./.config
+
+echo "CONFIG_BPF=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_BPF_SYSCALL=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_BPF_JIT=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_CGROUPS=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_KPROBES=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_NET_INGRESS=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_NET_EGRESS=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_NET_SCH_INGRESS=m" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_NET_CLS_BPF=m" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_NET_CLS_ACT=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_BPF_STREAM_PARSER=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_DEBUG_INFO=y" >> ./target/linux/qualcommax/config-6.6
+echo "# CONFIG_DEBUG_INFO_REDUCED is not set" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_DEBUG_INFO_BTF=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_KPROBE_EVENTS=y" >> ./target/linux/qualcommax/config-6.6
+echo "CONFIG_BPF_EVENTS=y" >> ./target/linux/qualcommax/config-6.6
+
 # 调整 V2ray服务器 到 VPN 菜单
 # sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/controller/*.lua
 # sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/*.lua
 # sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/view/v2ray_server/*.htm
+
+
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
