@@ -17,10 +17,6 @@ rm -rf feeds/packages/net/smartdns
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-netgear
 rm -rf feeds/luci/applications/luci-app-mosdns
-rm -rf feeds/luci/applications/luci-app-daed
-rm -rf feeds/luci/applications/luci-app-serverchanrm -rf ../feeds/luci/applications/luci-app-{dae*}
-rm -rf ../feeds/packages/net/{dae*}
-
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -125,18 +121,6 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 
 # 取消主题默认设置
 find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
-
-# eBPF
-echo "CONFIG_DEVEL=y" >> ./.config
-echo "CONFIG_BPF_TOOLCHAIN_HOST=y" >> ./.config
-echo "# CONFIG_BPF_TOOLCHAIN_NONE is not set" >> ./.config
-echo "CONFIG_KERNEL_BPF_EVENTS=y" >> ./.config
-echo "CONFIG_KERNEL_CGROUP_BPF=y" >> ./.config
-echo "CONFIG_KERNEL_DEBUG_INFO=y" >> ./.config
-echo "CONFIG_KERNEL_DEBUG_INFO_BTF=y" >> ./.config
-echo "# CONFIG_KERNEL_DEBUG_INFO_REDUCED is not set" >> ./.config
-echo "CONFIG_KERNEL_XDP_SOCKETS=y" >> ./.config
-
 
 # 调整 V2ray服务器 到 VPN 菜单
 # sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/controller/*.lua
