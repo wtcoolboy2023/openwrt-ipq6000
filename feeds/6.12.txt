@@ -3,3 +3,6 @@ src-git luci https://github.com/immortalwrt/luci.git
 src-git routing https://git.openwrt.org/feed/routing.git
 src-git telephony https://git.openwrt.org/feed/telephony.git
 src-git video https://github.com/openwrt/video.git
+src-git lucky https://github.com/gdy666/luci-app-lucky.git
+src-git tailscale https://github.com/asvow/luci-app-tailscale.git
+src-git OpenAppFilter https://github.com/destan19/OpenAppFilter.git
