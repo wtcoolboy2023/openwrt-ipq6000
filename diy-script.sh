@@ -37,7 +37,7 @@ git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/
 git clone --depth=1 https://github.com/Jason6111/luci-app-netdata package/luci-app-netdata
 git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-filebrowser luci-app-ssr-mudb-server
 git_sparse_clone openwrt-18.06 https://github.com/immortalwrt/luci applications/luci-app-eqos
-git clone https://github.com/sirpdboy/luci-app-lucky.git package/lucky
+git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky.git package/lucky
 git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
 git clone  https://github.com/destan19/OpenAppFilter package/OpenAppFilter
 
