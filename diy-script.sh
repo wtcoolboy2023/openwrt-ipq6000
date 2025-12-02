@@ -37,7 +37,6 @@ git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/
 git clone --depth=1 https://github.com/Jason6111/luci-app-netdata package/luci-app-netdata
 git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-filebrowser luci-app-ssr-mudb-server
 git_sparse_clone openwrt-18.06 https://github.com/immortalwrt/luci applications/luci-app-eqos
-git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky.git package/lucky
 git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
 git clone  https://github.com/destan19/OpenAppFilter package/OpenAppFilter
 
@@ -67,6 +66,9 @@ sed -i "s|ARMv8|ARMv8_PLUS|g" package/luci-app-amlogic/root/etc/config/amlogic
 # SmartDNS
 git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 git clone --depth=1 https://github.com/pymumu/openwrt-smartdns package/smartdns
+
+#lucky
+git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky.git package/lucky
 
 # msd_lite
 git clone --depth=1 https://github.com/ximiTech/luci-app-msd_lite package/luci-app-msd_lite
